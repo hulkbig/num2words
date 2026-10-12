@@ -109,8 +109,8 @@ HUNDREDS = {
 HUNDREDS_ORDINALS = {
     1: ('setny', "stu"),
     2: ('dwusetny', "dwustu"),
-    3: ('trzysetny', "trzystu"),
-    4: ('czterysetny', "czterystu"),
+    3: ('trzechsetny', "trzystu"),
+    4: ('czterechsetny', "czterystu"),
     5: ('pięćsetny', "pięcset"),
     6: ('sześćsetny', "sześćset"),
     7: ('siedemsetny', "siedemset"),

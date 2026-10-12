@@ -123,6 +123,32 @@ class Num2WordsPLTest(TestCase):
         self.assertEqual(num2words(1000000, lang='pl',
                                    to='ordinal'), "milionowy")
 
+    def test_to_ordinal_hundreds(self):
+        for number, expected in (
+            (200, "dwusetny"),
+            (300, "trzechsetny"),
+            (400, "czterechsetny"),
+            (500, "pięćsetny"),
+            (301, "trzysta pierwszy"),
+            (401, "czterysta pierwszy"),
+            (1300, "tysiąc trzechsetny"),
+            (1400, "tysiąc czterechsetny"),
+        ):
+            with self.subTest(number=number):
+                self.assertEqual(
+                    num2words(number, lang='pl', to='ordinal'), expected)
+
+    def test_to_ordinal_hundreds_prefixes(self):
+        for number, expected in (
+            (300000, "trzystutysięczny"),
+            (400000, "czterystutysięczny"),
+            (300000000, "trzystumilionowy"),
+            (400000000, "czterystumilionowy"),
+        ):
+            with self.subTest(number=number):
+                self.assertEqual(
+                    num2words(number, lang='pl', to='ordinal'), expected)
+
     def test_to_ordinal_error(self):
         with self.assertRaises(NotImplementedError):
             num2words(1.5, lang='pl', to='ordinal')
